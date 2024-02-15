@@ -1,0 +1,24 @@
+{
+    "family": "application-task",
+    "networkMode": "awsvpc",
+    "executionRoleArn": "arn:aws:iam::account_id:role/ecsTaskExecutionRole",
+    "containerDefinitions": [
+        {
+            "name": "second-app",
+            "image": "account_id.dkr.ecr.eu-central-1.amazonaws.com/my-app:latest",
+            "portMappings": [
+                {
+                    "containerPort": 8443,
+                    "hostPort": 8443,
+                    "protocol": "tcp"
+                }
+            ],
+            "essential": true
+        }
+    ],
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "cpu": "1 vCPU",
+    "memory": "3 GB"
+}
